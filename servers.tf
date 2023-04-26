@@ -27,7 +27,7 @@ resource "aws_route53_record" "frontend" {
 
 resource "aws_instance" "mongodb" {
   ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
 
   tags = {
     Name = "mongodb"
@@ -44,7 +44,7 @@ resource "aws_route53_record" "mongodb" {
 
 resource "aws_instance" "catalogue" {
   ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
 
   tags = {
     Name = "catalogue"
@@ -64,7 +64,7 @@ resource "aws_instance" "redis" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "redis"
+    Name = var.instance_type
   }
 }
 
@@ -81,7 +81,7 @@ resource "aws_instance" "user" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "user"
+    Name = var.instance_type
   }
 }
 
@@ -95,7 +95,7 @@ resource "aws_route53_record" "user" {
 
 resource "aws_instance" "cart" {
   ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
 
   tags = {
     Name = "cart"
@@ -112,7 +112,7 @@ resource "aws_route53_record" "cart" {
 
 resource "aws_instance" "mysql" {
   ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
 
   tags = {
     Name = "mysql"
@@ -132,7 +132,7 @@ resource "aws_instance" "shipping" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "shipping"
+    Name = var.instance_type
   }
 }
 
@@ -149,7 +149,7 @@ resource "aws_instance" "rabbitmq" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "rabbitmq"
+    Name = var.instance_type
   }
 }
 
@@ -166,7 +166,7 @@ resource "aws_instance" "payment" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "payment"
+    Name = var.instance_type
   }
 }
 
